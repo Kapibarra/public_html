@@ -1,0 +1,208 @@
+@charset "UTF-8";
+.modal__shadow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.modal.open .modal__shadow {
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  z-index: 9;
+}
+
+.modal.hiding .modal__shadow {
+  background: rgba(0, 0, 0, 0);
+  opacity: 1;
+  z-index: 9;
+}
+
+.modal.open .modal__window {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+  z-index: 10;
+}
+
+.modal.hiding .modal__window {
+  opacity: 0;
+  z-index: 10;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.modal__window {
+  position: relative;
+  background: rgb(0, 0, 0) url("../image/modal/modal-background.png") center/cover;
+  margin: 7.734375vw auto 0;
+  width: 52.0833333333vw;
+  height: 35vw;
+  -webkit-transition: opacity 0.2s ease 0s, -webkit-transform 0.2s ease 0s;
+  transition: opacity 0.2s ease 0s, -webkit-transform 0.2s ease 0s;
+  transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
+  transition: transform 0.2s ease 0s, opacity 0.2s ease 0s, -webkit-transform 0.2s ease 0s;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  opacity: 0;
+  z-index: -1;
+}
+
+.modal-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30.2%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.modal__close {
+  position: absolute;
+  top: 3.2738095238%;
+  right: 1.8%;
+}
+
+.modal__close-svg {
+  width: 2.2916666667vw;
+  height: 2.2395833333vw;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.modal__close-svg:hover {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.modal-header {
+  position: absolute;
+  top: 16.2202380952%;
+  left: 27.6%;
+  width: 42.6%;
+  height: 16.369047619%;
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 5.5rem;
+  color: #FFFFFF;
+  z-index: 11;
+}
+
+.modal-body {
+  position: absolute;
+  top: 42%;
+  left: 36%;
+  height: 49.5535714286%;
+  width: 52.4%;
+}
+
+fieldset {
+  border: none;
+}
+
+.userName,
+.userTel,
+.eMail {
+  width: 100%;
+  height: 6.994047619%;
+  border: none;
+  margin-bottom: 2.6041666667vw;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+}
+
+input {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  border: 0;
+  background: none;
+  border-bottom: 1px solid #D0BDAE;
+}
+
+label {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+}
+
+.modal-btn {
+  position: absolute;
+  top: 65.7738095238%;
+  left: 72.4%;
+  height: 8.28125vw;
+  width: 8.28125vw;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background: none;
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 2.5rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.modal-btn:hover {
+  -webkit-box-shadow: 0 0.2604166667vw 0.78125vw rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0.2604166667vw 0.78125vw rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  -webkit-transform: translateY(-1px) scale(1.01);
+          transform: translateY(-1px) scale(1.01);
+}
+.modal-btn:disabled {
+  opacity: 0.3;
+  cursor: initial;
+}
+
+input[type=submit] {
+  white-space: normal;
+}
+
+/*----------------------------------------------Адаптивность--------------------------------------------------*/
+@media screen and (orientation: portrait) {
+  .modal__window {
+    margin: 30% auto 0;
+    width: 90vw;
+    height: 60.48vw;
+  }
+  .modal-header {
+    font-weight: 700;
+    font-size: 5vw;
+    line-height: 5.7291666667vw;
+    color: #FFFFFF;
+  }
+  .userName,
+.userTel,
+.eMail {
+    font-weight: 400;
+    font-size: 1.875vw;
+    line-height: 1.875vw;
+  }
+  input {
+    font-weight: 400;
+    font-size: 1.875vw;
+    line-height: 1.875vw;
+  }
+  label {
+    font-weight: 400;
+    font-size: 1.875vw;
+    line-height: 1.875vw;
+  }
+  .modal-btn {
+    height: 15.625vw;
+    width: 15.625vw;
+    font-weight: 400;
+    font-size: 2.2916666667vw;
+    line-height: 2.6041666667vw;
+    color: #FFFFFF;
+  }
+}

@@ -1,0 +1,11 @@
+@mixin fontSize ($fontSize, $fontW: 400, $lineH: 130.4%) {
+  font-weight: $fontW;
+  font-size: $fontSize;
+  line-height: $lineH;
+}
+@mixin font ($color, $fontSize, $fontW: 400, $lineH: 130.4%) {
+  font-weight: $fontW;
+  font-size: $fontSize;
+  line-height: $lineH;
+  color: $color;
+}
