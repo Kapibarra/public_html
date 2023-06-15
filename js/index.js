@@ -1,93 +1,89 @@
-
 adaptive();
 
 // ----------------------- DropDown Menu ----------------------
 
-function mainMenuDropDown(){
-    const dropDownEl = document.getElementById("dropdown");
-    const dropDownSvg = document.querySelector(".main-menu__svg_V");
-    if (dropDownEl.classList.contains("show")) {
-        dropDownEl.classList.remove("show")
-        if (window.innerWidth <= 875) {
-            dropDownSvg.src = "image/Vector%206-mobile.svg";
-        }
-        else{
-            dropDownSvg.src = "image/Vector%206.svg"
-        }
+function mainMenuDropDown() {
+  const dropDownEl = document.getElementById("dropdown");
+  const dropDownSvg = document.querySelector(".main-menu__svg_V");
+  if (dropDownEl.classList.contains("show")) {
+    dropDownEl.classList.remove("show");
+    if (window.innerWidth <= 875) {
+      dropDownSvg.src = "image/Vector%206-mobile.svg";
     } else {
-        dropDownEl.classList.add("show");
-        if (window.innerWidth <= 875) {
-            dropDownSvg.src = "image/close-mobile.svg";
-        }
-        else{
-            dropDownSvg.src = "image/close.svg"
-        }
+      dropDownSvg.src = "image/Vector%206.svg";
     }
-
+  } else {
+    dropDownEl.classList.add("show");
+    if (window.innerWidth <= 875) {
+      dropDownSvg.src = "image/close-mobile.svg";
+    } else {
+      dropDownSvg.src = "image/close.svg";
+    }
+  }
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
 
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
+    let href = this.getAttribute("href").substring(1);
 
-        let href = this.getAttribute('href').substring(1);
+    const scrollTarget = document.getElementById(href);
 
-        const scrollTarget = document.getElementById(href);
+    // const topOffset = document.querySelector('.scrollto').offsetHeight;
+    const topOffset = 0; // если не нужен отступ сверху
+    const elementPosition = scrollTarget.getBoundingClientRect().top;
+    const offsetPosition = elementPosition - topOffset;
 
-        // const topOffset = document.querySelector('.scrollto').offsetHeight;
-        const topOffset = 0; // если не нужен отступ сверху
-        const elementPosition = scrollTarget.getBoundingClientRect().top;
-        const offsetPosition = elementPosition - topOffset;
-
-        window.scrollBy({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
+    window.scrollBy({
+      top: offsetPosition,
+      behavior: "smooth",
     });
+  });
 });
 
-window.onclick = function(event) {
-    if (!event.target.matches('.main-menu') && !event.target.matches('.main-menu__svg') && !event.target.matches('.main-menu__svg_V') && !event.target.matches('.main-menu__text')) {
-        const dropdowns = document.getElementsByClassName("header__sub-menu");
-        for (let i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-                const dropDownSvg = document.querySelector(".main-menu__svg_V");
-                if (window.innerWidth <= 875) {
-                    dropDownSvg.src = "image/Vector%206-mobile.svg";
-                }
-                else{
-                    dropDownSvg.src = "image/Vector%206.svg"
-                }
-            }
+window.onclick = function (event) {
+  if (
+    !event.target.matches(".main-menu") &&
+    !event.target.matches(".main-menu__svg") &&
+    !event.target.matches(".main-menu__svg_V") &&
+    !event.target.matches(".main-menu__text")
+  ) {
+    const dropdowns = document.getElementsByClassName("header__sub-menu");
+    for (let i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+        const dropDownSvg = document.querySelector(".main-menu__svg_V");
+        if (window.innerWidth <= 875) {
+          dropDownSvg.src = "image/Vector%206-mobile.svg";
+        } else {
+          dropDownSvg.src = "image/Vector%206.svg";
         }
+      }
     }
-}
+  }
+};
 
 // --------------------------  Infrastructure -------------------------------
 const liEls = document.querySelectorAll("ul li.fourth-screen__menu-item");
 const infrstrImgs = document.querySelector(".infrastructure-img");
-let liElsCount = liEls.length
+let liElsCount = liEls.length;
 for (let i = 0; i < liElsCount; i++) {
-    liEls[i].addEventListener(
-        'click',
-        function (event){
-            for (let x = 0; x < liElsCount; x++){
-                liEls[x].firstElementChild.classList.remove('active')
-            }
-            this.firstElementChild.classList.add('active')
-            for(let i = 0; i < liElsCount; i++){
-                if (liEls[i].firstElementChild.classList.contains('active')){
-                    infrstrImgs.setAttribute('src', 'image/infrastructure/' + i + '.jpg');
-                }
-            }
-            event.preventDefault();
-            adaptive();
-        }
-    );
-    liEls[i].removeEventListener('click', function (event){})
+  liEls[i].addEventListener("click", function (event) {
+    for (let x = 0; x < liElsCount; x++) {
+      liEls[x].firstElementChild.classList.remove("active");
+    }
+    this.firstElementChild.classList.add("active");
+    for (let i = 0; i < liElsCount; i++) {
+      if (liEls[i].firstElementChild.classList.contains("active")) {
+        infrstrImgs.setAttribute("src", "image/infrastructure/" + i + ".jpg");
+      }
+    }
+    event.preventDefault();
+    adaptive();
+  });
+  liEls[i].removeEventListener("click", function (event) {});
 }
 
 // function on_click(element){
@@ -114,41 +110,40 @@ for (let i = 0; i < liElsCount; i++) {
 
 const screenHeight = window.screen.height;
 const screenWidth = window.screen.width;
-const carousel = document.getElementById('carousel');
-const carousel2 = document.getElementById('carousel2');
-const content = document.getElementById('content');
-const next = document.getElementById('next');
-window.addEventListener('scroll', function() {
-    let scrolledY = window.scrollY;
-    let stickyTop = carousel.getBoundingClientRect().top;
-    let nextTop = next.getBoundingClientRect().top
-    let padTop = .3 * screenHeight;
-    let down = screenHeight - (1.659442724458204 * screenHeight);
-    let bottom = screenHeight - (.7 * screenHeight);
-    let carousel2start = 0.138202837625 * screenWidth;
+const carousel = document.getElementById("carousel");
+const carousel2 = document.getElementById("carousel2");
+const content = document.getElementById("content");
+const next = document.getElementById("next");
+window.addEventListener("scroll", function () {
+  let scrolledY = window.scrollY;
+  let stickyTop = carousel.getBoundingClientRect().top;
+  let nextTop = next.getBoundingClientRect().top;
+  let padTop = 0.3 * screenHeight;
+  let down = screenHeight - 1.659442724458204 * screenHeight;
+  let bottom = screenHeight - 0.7 * screenHeight;
+  let carousel2start = 0.138202837625 * screenWidth;
 
-
-    if (stickyTop <= 0 && nextTop > .9 * screenHeight){
-        content.style.paddingTop = padTop + 'px';
-        content.style.position = "fixed";
-        content.style.top = (scrolledY * 0.001)-55 + 'px';
-        content.style.left = stickyTop * 0.55 + 'px';
-    }
-    if (stickyTop > 0) {
-        content.style = "";
-        content.style.position = "inherit";
-    }
-    if (nextTop <= 0){
-        carousel2.style.left = (carousel2start + (nextTop * .5)) + 'px';
-    }
-    if (nextTop <= .9 * screenHeight) {
-        content.style = "";
-        content.style.position = "absolute";
-        content.style.bottom = bottom + 'px';
-        content.style.left = stickyTop * 0.55 + 'px';
-    }
+  if (stickyTop <= 0 && nextTop > 0.9 * screenHeight) {
+    content.style.paddingTop = padTop + "px";
+    content.style.position = "fixed";
+    content.style.top = scrolledY * 0.001 - 55 + "px";
+    content.style.left = stickyTop * 1.55 + "px";
+  }
+  if (stickyTop > 0) {
+    content.style = "";
+    content.style.position = "inherit";
+  }
+  if (nextTop <= 0) {
+    carousel2.style.left = carousel2start + nextTop * 0.5 + "px";
+  }
+  if (nextTop <= 0.9 * screenHeight) {
+    content.style = "";
+    content.style.position = "absolute";
+    content.style.bottom = bottom + "px";
+    content.style.left = stickyTop * 0.65 + "px";
+  }
 });
-window.removeEventListener('scroll', function() {})
+window.removeEventListener("scroll", function () {});
 
 // ---------------------- Catalog ----------------------
 
@@ -210,7 +205,6 @@ window.removeEventListener('scroll', function() {})
 //     false
 // );
 
-
 //----------------------- Interior ---------------------
 
 // const interior = [
@@ -250,37 +244,35 @@ const addressBtn = document.querySelectorAll(".address__header");
 const addressBtnCount = addressBtn.length;
 const twelfthBackground = document.querySelector(".twelfth-screen__background");
 for (let i = 0; i < addressBtnCount; i++) {
-    addressBtn[i].addEventListener(
-        'click',
-        function (event){
-            let addressVisible = document.querySelector(".address__visible")
-            let addressInactive = document.querySelector(".address__inactive")
-            addressVisible.classList.remove('address__visible');
-            // addressVisible.classList.add('address__invisible');
-            addressInactive.classList.remove('address__inactive');
-            this.nextElementSibling.classList.add('address__visible');
-            // this.classList.remove('address__inactive');
-            for(let i = 0; i < addressBtnCount; i++) {
-                addressBtn[i].classList.add('address__inactive');
-                if (addressBtn[i].nextElementSibling.classList.contains('address__visible')) {
-                    twelfthBackground.setAttribute('src', 'image/map' + i + '.jpg');
-                }
-            }
-            this.classList.remove('address__inactive');
-            event.preventDefault();
-            adaptive();
-        }
-    );
-    addressBtn[i].removeEventListener('click', function() {});
+  addressBtn[i].addEventListener("click", function (event) {
+    let addressVisible = document.querySelector(".address__visible");
+    let addressInactive = document.querySelector(".address__inactive");
+    addressVisible.classList.remove("address__visible");
+    // addressVisible.classList.add('address__invisible');
+    addressInactive.classList.remove("address__inactive");
+    this.nextElementSibling.classList.add("address__visible");
+    // this.classList.remove('address__inactive');
+    for (let i = 0; i < addressBtnCount; i++) {
+      addressBtn[i].classList.add("address__inactive");
+      if (
+        addressBtn[i].nextElementSibling.classList.contains("address__visible")
+      ) {
+        twelfthBackground.setAttribute("src", "image/map" + i + ".jpg");
+      }
+    }
+    this.classList.remove("address__inactive");
+    event.preventDefault();
+    adaptive();
+  });
+  addressBtn[i].removeEventListener("click", function () {});
 }
-
 
 // ------------------------ MODAL -----------------------
 const modalCallBack = $.modal({
-    title: "Обратный звонок",
-    closable: true,
-    img: "callback.jpg",
-    content: `
+  title: "Обратный звонок",
+  closable: true,
+  img: "callback.jpg",
+  content: `
           <div class="userName">
              <label for="name">ФИО&nbsp;</label>
              <input id="nameCallBack" type="text" name="name" onkeyup="check('CallBack');"/>
@@ -292,27 +284,34 @@ const modalCallBack = $.modal({
              </label>
           </div>  
     `,
-    footerButtons: [
-        {text: "Заказать звонок",
-         type: 'submit',
-         id: "CallBack",
-         handler(){
-             let inputName = document.getElementById('nameCallBack');
-             let inputTelCode = document.getElementById('tel1CallBack');
-             let inputTelNumber = document.getElementById('tel2CallBack');
-             let form = "Обратный звонок"
-             // console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
-             sendData(inputName.value, inputTelCode.value, inputTelNumber.value, form).then(response => response.json());
-             modalCallBack.close()
-         }}
-    ]
-})
+  footerButtons: [
+    {
+      text: "Заказать звонок",
+      type: "submit",
+      id: "CallBack",
+      handler() {
+        let inputName = document.getElementById("nameCallBack");
+        let inputTelCode = document.getElementById("tel1CallBack");
+        let inputTelNumber = document.getElementById("tel2CallBack");
+        let form = "Обратный звонок";
+        // console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
+        sendData(
+          inputName.value,
+          inputTelCode.value,
+          inputTelNumber.value,
+          form
+        ).then((response) => response.json());
+        modalCallBack.close();
+      },
+    },
+  ],
+});
 
 const modalPresentation = $.modal({
-    title: "Скачать<br>презентацию",
-    closable: true,
-    img: "finmodel.jpg",
-    content: `
+  title: "Скачать<br>презентацию",
+  closable: true,
+  img: "finmodel.jpg",
+  content: `
           <div class="userName">
              <label for="name">ФИО&nbsp;</label>
              <input id="namePresentation" type="text" name="name" onkeyup="check('Presentation');"/>
@@ -324,28 +323,35 @@ const modalPresentation = $.modal({
              </label>
           </div>  
     `,
-    footerButtons: [
-        {text: 'Скачать',
-        type: 'submit',
-        id: "Presentation",
-        handler(){
-            let inputName = document.getElementById('namePresentation');
-            let inputTelCode = document.getElementById('tel1Presentation');
-            let inputTelNumber = document.getElementById('tel2Presentation');
-            let form = "Скачать презентацию"
-            // console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
-            sendData(inputName.value, inputTelCode.value, inputTelNumber.value, form).then(response => response.json());
-            window.open('https://t.me/whiteresort_bot');
-            modalPresentation.close()
-        }}
-    ]
-})
+  footerButtons: [
+    {
+      text: "Скачать",
+      type: "submit",
+      id: "Presentation",
+      handler() {
+        let inputName = document.getElementById("namePresentation");
+        let inputTelCode = document.getElementById("tel1Presentation");
+        let inputTelNumber = document.getElementById("tel2Presentation");
+        let form = "Скачать презентацию";
+        // console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
+        sendData(
+          inputName.value,
+          inputTelCode.value,
+          inputTelNumber.value,
+          form
+        ).then((response) => response.json());
+        window.open("https://t.me/whiteresort_bot");
+        modalPresentation.close();
+      },
+    },
+  ],
+});
 
 const modalInfrastructure = $.modal({
-    title: "Аналитическая статья о&nbsp;проекте",
-    closable: true,
-    img: "finmodel.jpg",
-    content: `
+  title: "Аналитическая статья о&nbsp;проекте",
+  closable: true,
+  img: "finmodel.jpg",
+  content: `
           <div class="userName">
              <label for="name">ФИО&nbsp;</label>
              <input id="nameInfrastructure" type="text" name="name" onkeyup="check('Infrastructure');"/>
@@ -357,28 +363,35 @@ const modalInfrastructure = $.modal({
              </label>
           </div>  
     `,
-    footerButtons: [
-        {text: "Узнать больше",
-            type: 'submit',
-            id: "CallBack",
-        handler(){
-            let inputName = document.getElementById('nameInfrastructure');
-            let inputTelCode = document.getElementById('tel1Infrastructure');
-            let inputTelNumber = document.getElementById('tel2Infrastructure');
-            let form = "Статья о преимуществах"
-            // console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
-            sendData(inputName.value, inputTelCode.value, inputTelNumber.value, form).then(response => response.json());
-            window.open('https://t.me/whiteresort_bot');
-            modalInfrastructure.close()
-        }}
-    ]
-})
+  footerButtons: [
+    {
+      text: "Узнать больше",
+      type: "submit",
+      id: "CallBack",
+      handler() {
+        let inputName = document.getElementById("nameInfrastructure");
+        let inputTelCode = document.getElementById("tel1Infrastructure");
+        let inputTelNumber = document.getElementById("tel2Infrastructure");
+        let form = "Статья о преимуществах";
+        // console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
+        sendData(
+          inputName.value,
+          inputTelCode.value,
+          inputTelNumber.value,
+          form
+        ).then((response) => response.json());
+        window.open("https://t.me/whiteresort_bot");
+        modalInfrastructure.close();
+      },
+    },
+  ],
+});
 
 const modalProjects = $.modal({
-    title: "Каталог домов",
-    closable: true,
-    img: "callback.jpg",
-    content: `
+  title: "Каталог домов",
+  closable: true,
+  img: "callback.jpg",
+  content: `
           <div class="userName">
              <label for="name">ФИО&nbsp;</label>
              <input id="nameProjects" type="text" name="name" onkeyup="check('Projects');"/>
@@ -390,66 +403,82 @@ const modalProjects = $.modal({
              </label>
           </div>  
     `,
-    footerButtons: [
-        {text: "Смотреть",
-            type: 'button',
-            id: "Projects",
-            handler(){
-                let inputName = document.getElementById('nameProjects');
-                let inputTelCode = document.getElementById('tel1Projects');
-                let inputTelNumber = document.getElementById('tel2Projects');
-                let form = "Посмотреть проекты"
-                // console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
-                sendData(inputName.value, inputTelCode.value, inputTelNumber.value, form).then(response => response.json());
-                window.open('https://t.me/whiteresort_bot');
-                modalProjects.close();
-            }}
-    ]
-})
+  footerButtons: [
+    {
+      text: "Смотреть",
+      type: "button",
+      id: "Projects",
+      handler() {
+        let inputName = document.getElementById("nameProjects");
+        let inputTelCode = document.getElementById("tel1Projects");
+        let inputTelNumber = document.getElementById("tel2Projects");
+        let form = "Посмотреть проекты";
+        // console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
+        sendData(
+          inputName.value,
+          inputTelCode.value,
+          inputTelNumber.value,
+          form
+        ).then((response) => response.json());
+        window.open("https://t.me/whiteresort_bot");
+        modalProjects.close();
+      },
+    },
+  ],
+});
 
 function check(id) {
-    let inputName = document.getElementById('name'+id);
-    let inputTelCode = document.getElementById('tel1'+id);
-    let inputTelNumber = document.getElementById('tel2'+id);
-    console.log('User: ' + inputName.value + ' phone: ' + inputTelCode.value + inputTelNumber.value);
-    document.getElementById('send'+id).disabled = inputName.value && inputTelCode.value && inputTelNumber.value ? false : "disabled";
+  let inputName = document.getElementById("name" + id);
+  let inputTelCode = document.getElementById("tel1" + id);
+  let inputTelNumber = document.getElementById("tel2" + id);
+  console.log(
+    "User: " +
+      inputName.value +
+      " phone: " +
+      inputTelCode.value +
+      inputTelNumber.value
+  );
+  document.getElementById("send" + id).disabled =
+    inputName.value && inputTelCode.value && inputTelNumber.value
+      ? false
+      : "disabled";
 }
 
-async function sendData (inputName, inputTelCode, inputTelNumber, form){
-    let data = {
-        name: inputName,
-        phone_1: inputTelCode,
-        phone_2: inputTelNumber,
-        form: form
-    };
+async function sendData(inputName, inputTelCode, inputTelNumber, form) {
+  let data = {
+    name: inputName,
+    phone_1: inputTelCode,
+    phone_2: inputTelNumber,
+    form: form,
+  };
 
-    let response = await fetch('/send_mail.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(data)
-    });
+  let response = await fetch("/send_mail.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(data),
+  });
 
-    // let result = await response.json();
-    // console.log(result.message);
+  // let result = await response.json();
+  // console.log(result.message);
 }
 
-document.addEventListener('click', event => {
-    const btnType = event.target.dataset.modal;
-    if (btnType) {
-        event.preventDefault()
-        if (btnType === 'presentation') {
-            modalPresentation.open()
-        }
-        if (btnType === 'infrastructure') {
-            modalInfrastructure.open()
-        }
-        if (btnType === 'callBack') {
-            modalCallBack.open()
-        }
-        if (btnType === 'projects') {
-            modalProjects.open()
-        }
+document.addEventListener("click", (event) => {
+  const btnType = event.target.dataset.modal;
+  if (btnType) {
+    event.preventDefault();
+    if (btnType === "presentation") {
+      modalPresentation.open();
     }
-})
+    if (btnType === "infrastructure") {
+      modalInfrastructure.open();
+    }
+    if (btnType === "callBack") {
+      modalCallBack.open();
+    }
+    if (btnType === "projects") {
+      modalProjects.open();
+    }
+  }
+});

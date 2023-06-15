@@ -242,7 +242,7 @@ input {
   height: 7.8645833333vw;
   width: 7.8645833333vw;
   border-radius: 50%;
-  background: #b0ff00;
+  background: #fff;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -1597,7 +1597,40 @@ a {
   top: 22.2395833333vw;
   height: 30.78125vw;
 }
-
+@media screen and (max-width: 428px) {
+  .fifth-screen__container {
+    height: 200.5625vw !important;
+  }
+  .fifth-screen__items-container {
+    left: 5.2708333333vw !important;
+    top: 22.2395833333vw !important;
+    display: block;
+  }
+  .fifth-screen__item {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: unset !important;
+    margin-bottom: 20px;
+  }
+  .fifth-screen__item-header {
+    font-size: 26px !important;
+    text-align: center;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  .fifth-screen__item-header2 {
+    font-size: 26px !important;
+    text-align: center;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  .fifth-screen__item-description {
+    width: 100% !important;
+    max-width: 320px !important;
+    font-size: 16px !important;
+    text-align: center;
+  }
+}
 .fifth-screen__item {
   width: 25.9895833333vw;
   height: 10.2604166667vw;
@@ -1686,7 +1719,17 @@ a {
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
 }
-
+@media screen and (max-width: 428px) {
+  .sixth-screen__card {
+    width: 60vw !important;
+  }
+  .card1 {
+    width: 60vw !important;
+  }
+  .sixth-screen__card-content {
+    width: 60vw !important;
+  }
+}
 .sixth-screen__card-content {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -1698,7 +1741,7 @@ a {
 }
 
 .card1 {
-  width: 25.3125vw;
+  width: 60vw;
 }
 
 .card3 {
