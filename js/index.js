@@ -352,16 +352,14 @@ const modalInfrastructure = $.modal({
   closable: true,
   img: "finmodel.jpg",
   content: `
-          <div class="userName">
-             <label for="name">ФИО&nbsp;</label>
-             <input id="nameInfrastructure" type="text" name="name" onkeyup="check('Infrastructure');"/>
-          </div>   
-          <div class="userTel">
-             <label>+7&nbsp;(
-             <input id="tel1Infrastructure" name="tel1" type="tel" pattern="[0-9]{3}" aria-label="3-digit area code" size="1" onkeyup="check('Infrastructure');"/>) -
-             <input id="tel2Infrastructure" name="tel2" type="tel" pattern="[0-9]{7}" aria-label="7-digit number" size="12" onkeyup="check('Infrastructure');"/>
-             </label>
-          </div>  
+  <div class="userName">
+  <label for="name">ФИО&nbsp;</label>
+  <input id="nameInfrastructure" type="text" name="name" onkeyup="check('Infrastructure');"/>
+</div>   
+<div class="userTel">
+  <label for="telInfrastructure">Номер телефона&nbsp;</label>
+  <input id="telInfrastructure" name="tel" type="tel" pattern="[0-9]{10}" aria-label="10-digit phone number" size="10" onkeyup="check('Infrastructure');"/>
+</div>
     `,
   footerButtons: [
     {

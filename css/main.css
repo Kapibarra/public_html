@@ -1341,7 +1341,75 @@ a {
   height: 85.8854166666vw;
   background: #dad2cc;
 }
-
+@media screen and (max-width: 428px) {
+  .fourth-screen__container {
+    height: 140vh;
+  }
+  .fourth-screen__first-block {
+    height: 120vw !important;
+    box-sizing: border-box;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .fourth-screen__first-block-main-text {
+    font-size: 14px !important;
+  }
+  .fourth-screen__first-block-percents {
+    width: 100% !important;
+    flex-direction: column;
+    align-items: center;
+    height: unset !important;
+  }
+  .first-block__percents-cell-description {
+    text-align: center !important;
+    display: block !important;
+    font-size: 13px !important;
+  }
+  .fourth-screen__first-block-percents-cell {
+    width: unset !important;
+  }
+  .first-block__percents-cell-count {
+    width: 100% !important;
+    max-width: 320px !important;
+    text-align: center !important;
+    font-size: 24px !important;
+  }
+  .fourth-screen__belt {
+    height: 14vw !important;
+  }
+  .fourth-screen__first-block-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .fourth-screen__first-block-main-text {
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  .fourth-screen__first-block-percents {
+    align-self: unset !important;
+  }
+  .fourth-screen__menu {
+    width: 80vw !important;
+    height: 50vw !important;
+  }
+  .fourth-screen__menu-item {
+    width: 75vw !important;
+  }
+  .li__header {
+    font-size: 16px !important;
+  }
+  .fourth-screen__belt-h2 {
+    font-size: 24px !important;
+  }
+  .li__subtext {
+    font-size: 14px !important;
+  }
+  .infrastructure-imgs {
+    width: 80% !important;
+    left: 10% !important;
+    bottom: -200% !important;
+  }
+}
 .fourth-screen__string {
   top: 12.3958333333vw;
   right: 4.4270833333vw;
@@ -1363,6 +1431,11 @@ a {
 
 .fourth-screen__first-block-content {
   height: 18.1770833333vw;
+}
+@media screen and (max-width: 428px) {
+  .fourth-screen__first-block-content {
+    height: 97vw;
+  }
 }
 
 .fourth-screen__first-block-main-text {
@@ -3464,6 +3537,14 @@ a {
   #carousel-mobile {
     display: block;
   }
+  .address-selection {
+    width: 80vw !important;
+    height: 40vw !important;
+  }
+  .seventh-screen__container {
+    width: 100% !important;
+    height: 245vh !important;
+  }
   .seventh-screen__first-container {
     box-sizing: border-box;
     padding-left: 30px !important;
@@ -3489,5 +3570,24 @@ a {
     width: 13vw;
     height: 13vh;
     left: 50%;
+  }
+  .twelfth-screen__container {
+    height: 70vw !important;
+  }
+  .twelfth-screen__background {
+    height: 70vw !important;
+  }
+  .address__text {
+    font-size: 11.8rem;
+    line-height: 11.4rem;
+  }
+  .address__phone {
+    font-size: 11.8rem;
+    line-height: 11.4rem;
+  }
+  .address__header {
+    font-size: 11.8rem;
+    line-height: 11.4rem;
+    height: 7vw !important;
   }
 }
