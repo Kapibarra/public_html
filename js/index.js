@@ -134,7 +134,7 @@ window.addEventListener("scroll", function () {
     content.style.position = "inherit";
   }
   if (nextTop <= 0) {
-    carousel2.style.left = carousel2start + nextTop * 0.5 + "px";
+    carousel2.style.left = carousel2start + nextTop * 0.55 + "px";
   }
   if (nextTop <= 0.9 * screenHeight) {
     content.style = "";
