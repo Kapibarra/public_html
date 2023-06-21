@@ -126,15 +126,15 @@ window.addEventListener("scroll", function () {
   if (stickyTop <= 0 && nextTop > 0.9 * screenHeight) {
     content.style.paddingTop = padTop + "px";
     content.style.position = "fixed";
-    content.style.top = scrolledY * 0.001 - 55 + "px";
-    content.style.left = stickyTop * 1.55 + "px";
+    content.style.top = scrolledY * 0.001 - 50 + "px";
+    content.style.left = stickyTop * 1.5 + "px";
   }
   if (stickyTop > 0) {
     content.style = "";
     content.style.position = "inherit";
   }
   if (nextTop <= 0) {
-    carousel2.style.left = carousel2start + nextTop * 0.55 + "px";
+    carousel2.style.left = carousel2start + nextTop * 0.5 + "px";
   }
   if (nextTop <= 0.9 * screenHeight) {
     content.style = "";
@@ -317,10 +317,8 @@ const modalPresentation = $.modal({
              <input id="namePresentation" type="text" name="name" onkeyup="check('Presentation');"/>
           </div>   
           <div class="userTel">
-             <label>+7&nbsp;(
-             <input id="tel1Presentation" name="tel1" type="tel" pattern="[0-9]{3}" aria-label="3-digit area code" size="1" onkeyup="check('Presentation');"/>) -
-             <input id="tel2Presentation" name="tel2" type="tel" pattern="[0-9]{7}" aria-label="7-digit number" size="12" onkeyup="check('Presentation');"/>
-             </label>
+          <label for="telInfrastructure">Номер телефона&nbsp;</label>
+          <input id="telInfrastructure" name="tel" type="tel" pattern="[0-9]{10}" aria-label="10-digit phone number" size="10" onkeyup="check('Infrastructure');"/>
           </div>  
     `,
   footerButtons: [
@@ -395,10 +393,8 @@ const modalProjects = $.modal({
              <input id="nameProjects" type="text" name="name" onkeyup="check('Projects');"/>
           </div>   
           <div class="userTel">
-             <label>+7&nbsp;(
-             <input id="tel1Projects" name="tel1" type="tel" pattern="[0-9]{3}" aria-label="3-digit area code" size="1" onkeyup="check('Projects');"/>) -
-             <input id="tel2Projects" name="tel2" type="tel" pattern="[0-9]{7}" aria-label="7-digit number" size="12" onkeyup="check('Projects');"/>
-             </label>
+          <label for="telInfrastructure">Номер телефона&nbsp;</label>
+          <input id="telInfrastructure" name="tel" type="tel" pattern="[0-9]{10}" aria-label="10-digit phone number" size="10" onkeyup="check('Infrastructure');"/>
           </div>  
     `,
   footerButtons: [
