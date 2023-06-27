@@ -206,6 +206,12 @@ input {
   -webkit-animation: spin-right 3s ease-in-out infinite;
   animation: spin-right 3s ease-in-out infinite;
   cursor: pointer;
+  -webkit-box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1);
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1);
+  -webkit-animation: spin-right 3s ease-in-out infinite;
+  animation: spin-right 3s ease-in-out infinite;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .orbit-dot {
@@ -1343,7 +1349,7 @@ a {
 }
 @media screen and (max-width: 428px) {
   .fourth-screen__container {
-    height: 140vh;
+    height: 115vh;
   }
   .fourth-screen__first-block {
     height: 120vw !important;
@@ -1797,13 +1803,13 @@ a {
 }
 @media screen and (max-width: 428px) {
   .sixth-screen__card {
-    width: 60vw !important;
+    width: 65vw !important;
   }
   .card1 {
-    width: 60vw !important;
+    width: 65vw !important;
   }
   .sixth-screen__card-content {
-    width: 60vw !important;
+    width: 65vw !important;
   }
 }
 .sixth-screen__card-content {

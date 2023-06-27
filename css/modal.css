@@ -161,7 +161,7 @@ label {
   transform: translateY(-1px) scale(1.01);
 }
 .modal-btn:disabled {
-  opacity: 0.3;
+  opacity: 1;
   cursor: initial;
 }
 
