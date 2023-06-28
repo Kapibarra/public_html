@@ -152,6 +152,11 @@ label {
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  /* -webkit-box-shadow: 0 0.2604166667vw 0.78125vw rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0.2604166667vw 0.78125vw rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  -webkit-transform: translateY(-1px) scale(1.01);
+  transform: translateY(-1px) scale(1.01); */
 }
 .modal-btn:hover {
   -webkit-box-shadow: 0 0.2604166667vw 0.78125vw rgba(255, 255, 255, 0.1);

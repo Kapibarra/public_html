@@ -278,10 +278,8 @@ const modalCallBack = $.modal({
              <input id="nameCallBack" type="text" name="name" onkeyup="check('CallBack');"/>
           </div>   
           <div class="userTel">
-             <label>+7&nbsp;(
-             <input id="tel1CallBack" name="tel1" type="tel" pattern="[0-9]{3}" aria-label="3-digit area code" size="1" onkeyup="check('CallBack');"/>) -
-             <input id="tel2CallBack" name="tel2" type="tel" pattern="[0-9]{7}" aria-label="7-digit number" size="12" onkeyup="check('CallBack');"/>
-             </label>
+          <label for="telInfrastructure">Номер телефона&nbsp;</label>
+          <input id="telInfrastructure" name="tel" type="tel" pattern="[0-9]{10}" aria-label="10-digit phone number" size="10" onkeyup="check('Infrastructure');"/>
           </div>  
     `,
   footerButtons: [
