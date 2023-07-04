@@ -126,7 +126,7 @@ window.addEventListener("scroll", function () {
   if (stickyTop <= 0 && nextTop > 0.9 * screenHeight) {
     content.style.paddingTop = padTop + "px";
     content.style.position = "fixed";
-    content.style.top = scrolledY * 0.001 - 50 + "px";
+    content.style.top = scrolledY * 0.001 - 55 + "px";
     content.style.left = stickyTop * 1.5 + "px";
   }
   if (stickyTop > 0) {

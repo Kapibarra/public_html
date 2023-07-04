@@ -1352,7 +1352,7 @@ a {
     height: 115vh;
   }
   .fourth-screen__first-block {
-    height: 120vw !important;
+    height: 145vw !important;
     box-sizing: border-box;
     padding-left: 15px !important;
     padding-right: 15px !important;
@@ -1441,6 +1441,14 @@ a {
 @media screen and (max-width: 428px) {
   .fourth-screen__first-block-content {
     height: 97vw;
+  }
+  .second-screen__bottom-block {
+    padding-bottom: 50px !important;
+  }
+  .fourth-screen__h2 {
+    font-size: 15rem;
+    width: 70.385417vw !important;
+    height: 28.3125vw !important;
   }
 }
 
@@ -1660,7 +1668,14 @@ a {
   top: 7.03125vw;
   left: 35.8333333333vw;
 }
-
+@media screen and (max-width: 428px) {
+  .fifth-screen__h2 {
+    width: 100% !important;
+    max-width: 320px !important;
+    font-size: 15rem;
+    left: 15vw;
+  }
+}
 .fifth-screen__items-container {
   position: absolute;
   display: -webkit-box;
@@ -1775,7 +1790,17 @@ a {
 .sixth-screen__header-h2 {
   padding: 8.0729166667vw 0 0 5.5729166667vw;
 }
-
+@media screen and (max-width: 428px) {
+  .sixth-screen__header-h2 {
+    font-size: 15rem;
+  }
+  .sixth-screen__header {
+    bottom: -23.364583vw;
+    left: 10.78125vw;
+    width: 67.15625vw;
+    height: 29.270833vw;
+  }
+}
 .sixth-screen__cards-container {
   position: inherit;
   padding-top: 30vh;
@@ -1979,6 +2004,13 @@ a {
   }
   .seventh-screen__main-text-style {
     font-size: 14px !important;
+  }
+  .seventh-screen__h2 {
+    font-size: 15rem !important;
+    line-height: 54% !important;
+  }
+  .eighth-screen__container > .sixth-screen__header {
+    bottom: -14.4vw;
   }
 }
 
